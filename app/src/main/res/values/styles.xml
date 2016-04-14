@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="header">
+        <item name="android:fontFamily">"sans-serif-medium"</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:textColor">@color/transparent_dark</item>
+    </style>
+
+    <style name="content">
+        <item name="android:fontFamily">"sans-serif-light"</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="header.row" parent="header">
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="content.row" parent="content">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="filter_button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@color/white</item>
+
+    </style>
+</resources>

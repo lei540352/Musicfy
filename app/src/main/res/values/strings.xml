@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Musicfy</string>
+    <string name="label_info">Order these songs by popularity</string>
+</resources>
