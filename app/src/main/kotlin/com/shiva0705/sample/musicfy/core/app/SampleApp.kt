@@ -7,6 +7,7 @@ import com.shiva0705.sample.musicfy.core.dagger.components.DaggerPreferenceCompo
 import com.shiva0705.sample.musicfy.core.dagger.components.PreferenceComponent
 import com.shiva0705.sample.musicfy.core.dagger.modules.ApiModule
 import com.shiva0705.sample.musicfy.core.dagger.modules.AppModule
+import com.shiva0705.sample.musicfy.core.dagger.modules.DomainModule
 import com.shiva0705.sample.musicfy.core.dagger.modules.PreferenceModule
 
 class MusicfyApp : Application() {
@@ -22,6 +23,7 @@ class MusicfyApp : Application() {
                     .appModule(AppModule(this))
                     .apiModule(ApiModule())
                     .preferenceModule(PreferenceModule())
+                    .domainModule(DomainModule())
                     .build()
 
         prefComponent = DaggerPreferenceComponent.builder()

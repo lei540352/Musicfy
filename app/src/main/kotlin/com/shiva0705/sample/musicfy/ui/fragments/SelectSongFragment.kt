@@ -45,7 +45,6 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
         (activity.application as MusicfyApp).appComponent.inject(this)
 
         getSongList()
-        nextBtn.setOnClickListener({next()})
     }
 
     fun getSongList() {
@@ -68,6 +67,7 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
         itemTouchHelper = ItemTouchHelper(callback)
         itemTouchHelper.attachToRecyclerView(recylerView)
 
+        nextBtn.setOnClickListener({next()})
     }
 
     override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {

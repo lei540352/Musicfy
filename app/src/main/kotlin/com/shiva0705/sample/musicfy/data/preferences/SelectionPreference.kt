@@ -11,7 +11,14 @@ class SelectionPreference : BasePreference(){
         MusicfyApp.instance.prefComponent.inject(this)
     }
 
-    fun saveSelectionOrder(genre : String, songs : List<Song>) = commit(Prefereneces.song_selection_by_genre + "_" + genre, songs)
+    fun saveSelectionOrder(genre : String, songs : List<Song>) = commit(getGenrePrefName(genre), songs)
 
-    /*fun get() : DataModel.Location? = read(Prefereneces.selected_location, DataModel.Location::class.java)*/
+    fun getSelection(genre : String) : List<Song>? = readList(getGenrePrefName(genre), Array<Song>::class.java)
+
+    private fun getGenrePrefName(genre : String): String{
+        var builder = StringBuilder(Prefereneces.song_selection_by_genre)
+        builder.append("_")
+        builder.append(genre)
+        return builder.toString()
+    }
 }
