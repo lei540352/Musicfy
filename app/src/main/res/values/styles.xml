@@ -33,4 +33,18 @@
         <item name="android:background">@color/white</item>
 
     </style>
+    <style name="button_rounded_corner" parent="Widget.AppCompat.Button">
+        <item name="android:fontFamily">"sans-serif"</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+    </style>
 </resources>

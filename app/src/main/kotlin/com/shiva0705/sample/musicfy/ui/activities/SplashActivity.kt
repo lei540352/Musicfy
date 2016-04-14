@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.shiva0705.sample.musicfy.BuildConfig
 import com.shiva0705.sample.musicfy.R
-import com.shiva0705.sample.sampleApp.activities.core.ActivityStartupHelper
+import com.shiva0705.sample.musicfy.ui.activities.core.ActivityStartupHelper
 import com.shiva0705.sample.musicfy.ui.activities.core.BaseActivity
 import com.spotify.sdk.android.authentication.AuthenticationClient
 import com.spotify.sdk.android.authentication.AuthenticationRequest

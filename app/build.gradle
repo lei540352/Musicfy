@@ -14,7 +14,7 @@ android {
         versionName "1.0"
         buildConfigField "String", "SPOTIFY_API", "\"https://api.spotify.com/v1/\""
         buildConfigField "String", "SPOTIFY_CLIENT_ID", "\"773880bd8ef44f53ac450c4c42ce082a\""
-        buildConfigField "String", "SPOTIFY_ACCESS_TOKEN", "\"BQA7HYpqnfFmsG0UTq0tGLNuaCfCKqynCV7wd4I8MHS4nCSFwGMniIWJKHFZM_G-wYtvIkrxYXQdz4N3kcU_-JnMVBX_eHQRLRrKfhua6SCbbb-Faj_OTIiEfYMQ60P4z2tLT6qmx0JVgA\""
+        buildConfigField "String", "SPOTIFY_ACCESS_TOKEN", "\"BQDKx59GkaOrLEOZMOHWHzEteivV4i2iyCq_gnBf1BbUHyHGaHudZ_9kHBx5n3YAFSI4rVVABPQzWQ_oAv50b7OkAm-FFAMwad_1D5GM2U_0ti-2W8bedJC14U-GkWJuDy8HO5Cy65O8RA\""
 
     }
 

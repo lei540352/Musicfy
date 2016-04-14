@@ -14,6 +14,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun showFragment(fragment: BaseFragment) = fragmentManager
             .beginTransaction()
+            .setCustomAnimations(R.animator.slide_in, R.animator.slide_out)
             .replace(R.id.view_container, fragment)
-            .addToBackStack(fragment.tag).commit()
+            .addToBackStack(fragment.tag)
+            .commit()
 }

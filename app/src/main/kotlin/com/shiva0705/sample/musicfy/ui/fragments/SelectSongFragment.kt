@@ -5,17 +5,20 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.View
+import android.widget.Button
 import butterknife.bindView
 import com.shiva0705.sample.musicfy.R
-import com.shiva0705.sample.musicfy.data.api.core.RetrofitUtil
-import com.shiva0705.sample.musicfy.models.Song
+import com.shiva0705.sample.musicfy.core.app.MusicfyApp
+import com.shiva0705.sample.musicfy.data.api.SpotifyApi
 import com.shiva0705.sample.musicfy.models.Tracks
+import com.shiva0705.sample.musicfy.ui.activities.MainActivity
 import com.shiva0705.sample.musicfy.ui.adapters.SongAdapter
 import com.shiva0705.sample.musicfy.ui.adapters.core.OnStartDragListener
 import com.shiva0705.sample.musicfy.ui.adapters.core.SimpleItemTouchHelperCallback
 import com.shiva0705.sample.musicfy.ui.fragments.core.BaseFragment
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import javax.inject.Inject
 
 class SelectSongFragment : BaseFragment(), OnStartDragListener {
 
@@ -26,20 +29,25 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
     lateinit var adapter: SongAdapter
     lateinit var itemTouchHelper: ItemTouchHelper
 
-    val recylerView: RecyclerView by bindView(R.id.recylcer_view)
+    @Inject lateinit var spotifyApi : SpotifyApi
 
-    var songs: List<Song>? = null
+    val recylerView: RecyclerView by bindView(R.id.recylcer_view)
+    val nextBtn : Button by bindView(R.id.btn_next)
+
     var tryAgain: View.OnClickListener = View.OnClickListener { getSongList() }
     val maxLimit = 5
 
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity.application as MusicfyApp).appComponent.inject(this)
+
         getSongList()
+        nextBtn.setOnClickListener({next()})
     }
 
     fun getSongList() {
-        RetrofitUtil.spotifyApi().search(genre, maxLimit)
+        spotifyApi.search(genre, maxLimit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ res -> showSongList(res) },
@@ -63,6 +71,11 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
     override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
         itemTouchHelper.startDrag(viewHolder)
     }
+
+    fun next(){
+        (activity as MainActivity).nextGenre()
+    }
+
 
     companion object {
         fun newInstance(genre: String): SelectSongFragment {

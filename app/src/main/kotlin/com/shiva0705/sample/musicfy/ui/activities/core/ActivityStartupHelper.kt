@@ -1,4 +1,4 @@
-package com.shiva0705.sample.sampleApp.activities.core
+package com.shiva0705.sample.musicfy.ui.activities.core
 
 import android.app.Activity
 import android.content.Intent
@@ -10,5 +10,6 @@ object ActivityStartupHelper{
         val intent = Intent(activity, MainActivity::class.java)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         activity.startActivity(intent)
+        activity.finish()
     }
 }
