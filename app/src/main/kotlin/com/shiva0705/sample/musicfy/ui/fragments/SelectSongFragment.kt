@@ -10,6 +10,7 @@ import butterknife.bindView
 import com.shiva0705.sample.musicfy.R
 import com.shiva0705.sample.musicfy.core.app.MusicfyApp
 import com.shiva0705.sample.musicfy.data.api.SpotifyApi
+import com.shiva0705.sample.musicfy.data.preferences.SelectionPreference
 import com.shiva0705.sample.musicfy.models.Tracks
 import com.shiva0705.sample.musicfy.ui.activities.MainActivity
 import com.shiva0705.sample.musicfy.ui.adapters.SongAdapter
@@ -30,6 +31,7 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
     lateinit var itemTouchHelper: ItemTouchHelper
 
     @Inject lateinit var spotifyApi : SpotifyApi
+    @Inject lateinit var selectionPreference : SelectionPreference
 
     val recylerView: RecyclerView by bindView(R.id.recylcer_view)
     val nextBtn : Button by bindView(R.id.btn_next)
@@ -73,6 +75,7 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
     }
 
     fun next(){
+        selectionPreference.saveSelectionOrder(genre, adapter.songs)
         (activity as MainActivity).nextGenre()
     }
 

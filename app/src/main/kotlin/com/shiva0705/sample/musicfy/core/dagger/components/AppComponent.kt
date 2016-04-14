@@ -13,6 +13,6 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun inject(obj : MainActivity);
-    fun inject(locationListFragment : SelectSongFragment);
+    fun inject(songListFragment: SelectSongFragment);
 
 }

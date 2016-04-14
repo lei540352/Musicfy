@@ -1,14 +1,14 @@
 package com.shiva0705.sample.musicfy.core.dagger.modules
 
+import com.shiva0705.sample.musicfy.data.preferences.SelectionPreference
 import dagger.Module
+import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class PreferenceModule(){
 
-   /* @Provides @Singleton
-    fun provideLocationPreference(): LocationPreference = LocationPreference()
-
     @Provides @Singleton
-    fun provideUserLocationPreference(): UserLocationPreferences = UserLocationPreferences()*/
+    fun provideSelectionPreference(): SelectionPreference = SelectionPreference()
 
 }

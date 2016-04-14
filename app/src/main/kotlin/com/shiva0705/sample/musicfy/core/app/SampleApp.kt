@@ -30,9 +30,6 @@ class MusicfyApp : Application() {
 
     }
 
-    fun getAppComponents() = appComponent
-
-
     companion object {
         lateinit var sInstance: MusicfyApp
         val instance: MusicfyApp
