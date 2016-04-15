@@ -1,6 +1,6 @@
 package com.shiva0705.sample.musicfy.domain
 
-import com.shiva0705.sample.musicfy.core.app.MusicfyApp
+import com.shiva0705.sample.musicfy.core.dagger.componentProvider.AppComponentProvider
 import com.shiva0705.sample.musicfy.data.preferences.SelectionPreference
 import com.shiva0705.sample.musicfy.models.Tracks
 import javax.inject.Inject
@@ -11,7 +11,7 @@ class Scorer {
     @Inject lateinit var selectionPref : SelectionPreference
 
     init{
-        MusicfyApp.instance.appComponent.inject(this)
+        AppComponentProvider.appComponent.inject(this)
     }
 
     fun getScore() : Int{

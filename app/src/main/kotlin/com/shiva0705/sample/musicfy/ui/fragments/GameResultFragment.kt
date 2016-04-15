@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import butterknife.bindView
 import com.shiva0705.sample.musicfy.R
-import com.shiva0705.sample.musicfy.core.app.MusicfyApp
+import com.shiva0705.sample.musicfy.core.dagger.componentProvider.AppComponentProvider
 import com.shiva0705.sample.musicfy.domain.GameEngine
 import com.shiva0705.sample.musicfy.ui.fragments.core.BaseFragment
 import javax.inject.Inject
@@ -25,7 +25,7 @@ class GameResultFragment : BaseFragment(){
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity.application as MusicfyApp).appComponent.inject(this)
+        AppComponentProvider.appComponent.inject(this)
 
         tryAgain.setOnClickListener({tryAgain()})
     }
@@ -40,7 +40,7 @@ class GameResultFragment : BaseFragment(){
         val animator = ValueAnimator()
 
         animator.setObjectValues(0, score)
-        animator.duration = 3000
+        animator.duration = 1000
         animator.interpolator = DecelerateInterpolator()
         animator.addUpdateListener { animation -> scoreView.text = "" + animation.animatedValue as Int }
         animator.start()

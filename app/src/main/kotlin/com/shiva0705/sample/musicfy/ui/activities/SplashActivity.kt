@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.shiva0705.sample.musicfy.BuildConfig
 import com.shiva0705.sample.musicfy.R
-import com.shiva0705.sample.musicfy.core.app.MusicfyApp
+import com.shiva0705.sample.musicfy.core.dagger.componentProvider.AppComponentProvider
 import com.shiva0705.sample.musicfy.data.preferences.SpotifyPreference
 import com.shiva0705.sample.musicfy.ui.activities.core.ActivityStartupHelper
 import com.shiva0705.sample.musicfy.ui.activities.core.BaseActivity
@@ -22,7 +22,7 @@ class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (application as MusicfyApp).appComponent.inject(this)
+        AppComponentProvider.appComponent.inject(this)
 
         setContentView(R.layout.activity_splash)
         openSpotifyLogin()

@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Button
 import butterknife.bindView
 import com.shiva0705.sample.musicfy.R
-import com.shiva0705.sample.musicfy.core.app.MusicfyApp
+import com.shiva0705.sample.musicfy.core.dagger.componentProvider.AppComponentProvider
 import com.shiva0705.sample.musicfy.data.api.SpotifyApi
 import com.shiva0705.sample.musicfy.data.preferences.SelectionPreference
 import com.shiva0705.sample.musicfy.models.Tracks
@@ -42,7 +42,7 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity.application as MusicfyApp).appComponent.inject(this)
+        AppComponentProvider.appComponent.inject(this)
 
         getSongList()
     }

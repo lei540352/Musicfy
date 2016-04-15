@@ -1,7 +1,7 @@
 package com.shiva0705.sample.musicfy.domain
 
 import android.app.Activity
-import com.shiva0705.sample.musicfy.core.app.MusicfyApp
+import com.shiva0705.sample.musicfy.core.dagger.componentProvider.AppComponentProvider
 import com.shiva0705.sample.musicfy.ui.activities.core.ActivityStartupHelper
 import com.shiva0705.sample.musicfy.ui.fragments.GameResultFragment
 import com.shiva0705.sample.musicfy.ui.fragments.SelectSongFragment
@@ -13,7 +13,7 @@ class GameEngine {
     @Inject lateinit var scorer: Scorer
 
     init {
-        MusicfyApp.instance.appComponent.inject(this)
+        AppComponentProvider.appComponent.inject(this)
     }
 
     var currentGenreIndex: Int = 0

@@ -1,6 +1,6 @@
 package com.shiva0705.sample.musicfy.data.api.core
 
-import com.shiva0705.sample.musicfy.core.app.MusicfyApp
+import com.shiva0705.sample.musicfy.core.dagger.componentProvider.AppComponentProvider
 import com.shiva0705.sample.musicfy.data.preferences.SpotifyPreference
 import okhttp3.Interceptor
 import okhttp3.Response
@@ -12,7 +12,7 @@ class SpotifyInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain?): Response? {
 
-        MusicfyApp.instance.appComponent.inject(this)
+        AppComponentProvider.appComponent.inject(this)
 
         var request = chain?.request()
 
