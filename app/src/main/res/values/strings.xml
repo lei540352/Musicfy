@@ -2,4 +2,6 @@
     <string name="app_name">Musicfy</string>
     <string name="label_info">Drag songs and arrange by popularity</string>
     <string name="next">Next</string>
+    <string name="try_again">Try Again</string>
+    <string name="score">You Scored</string>
 </resources>

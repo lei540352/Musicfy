@@ -5,6 +5,7 @@ import com.shiva0705.sample.musicfy.core.dagger.modules.AppModule
 import com.shiva0705.sample.musicfy.core.dagger.modules.DomainModule
 import com.shiva0705.sample.musicfy.core.dagger.modules.PreferenceModule
 import com.shiva0705.sample.musicfy.data.api.core.SpotifyInterceptor
+import com.shiva0705.sample.musicfy.domain.GameEngine
 import com.shiva0705.sample.musicfy.domain.ScoreGatherer
 import com.shiva0705.sample.musicfy.domain.Scorer
 import com.shiva0705.sample.musicfy.ui.activities.MainActivity
@@ -25,5 +26,6 @@ interface AppComponent {
 
     fun inject(obj : Scorer)
     fun inject(obj : ScoreGatherer)
+    fun inject(obj : GameEngine)
 
 }

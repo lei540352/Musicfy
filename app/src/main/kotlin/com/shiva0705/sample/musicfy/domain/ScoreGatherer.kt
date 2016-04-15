@@ -1,37 +1,27 @@
 package com.shiva0705.sample.musicfy.domain
 
-import com.shiva0705.sample.musicfy.core.app.MusicfyApp
-import com.shiva0705.sample.musicfy.data.preferences.SelectionPreference
-import javax.inject.Inject
+import com.shiva0705.sample.musicfy.models.Song
+import com.shiva0705.sample.musicfy.models.Tracks
+import com.shiva0705.sample.musicfy.models.core.SongComparator
+import java.util.*
 
 class ScoreGatherer{
-    @Inject lateinit var selectionPref : SelectionPreference
 
-    fun createPopularityMatrix() : List<List<Double>>?{
-        var m = arrayListOf(arrayListOf<Double>())
 
-        for(i  in 0 .. GameConfig.game_genres.size -1){
-
-            var genre = GameConfig.game_genres[i]
-            var songs = selectionPref.getSelection(genre)
-            var size = songs?.size ?: 1
-
-            var popularityList  = arrayListOf<Double>()
-
-            if(songs == null) {
-                return null
-            }
-
-            for(j in 0 .. size-1){
-                popularityList.add(j, songs[j].popularity)
-            }
-
-            m.add(i, popularityList)
-        }
-        return m
+    fun getNextNode(nodePos : Int, tracks : Tracks) : Int{
+        var pq = gatherNodes(nodePos, tracks)
+        Collections.sort(pq, SongComparator())
+        return tracks.tracks.indexOf(pq[0])
     }
 
-    init {
-        MusicfyApp.instance.appComponent.inject(this)
+    private fun gatherNodes(nodePos : Int, tracks: Tracks) : ArrayList<Song>{
+
+        var queue = arrayListOf<Song>()
+
+        if(nodePos -1 > 0) queue.add(tracks.tracks[nodePos-1])
+        queue.add(tracks.tracks[nodePos])
+        if(nodePos + 1 < GameConfig.game_genres.size) queue.add(tracks.tracks[nodePos+1])
+
+        return queue
     }
 }

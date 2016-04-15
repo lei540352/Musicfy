@@ -75,8 +75,8 @@ class SelectSongFragment : BaseFragment(), OnStartDragListener {
     }
 
     fun next(){
-        selectionPreference.saveSelectionOrder(genre, adapter.songs)
-        (activity as MainActivity).nextGenre()
+        selectionPreference.saveSelectionOrder(genre, Tracks(adapter.songs))
+        (activity as MainActivity).nextStep()
     }
 
 
