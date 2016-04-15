@@ -19,7 +19,6 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
     protected void setUp() throws Exception {
         super.setUp();
         getActivity();
-
     }
 
     @Test
