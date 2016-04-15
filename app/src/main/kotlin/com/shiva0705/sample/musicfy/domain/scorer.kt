@@ -15,8 +15,11 @@ class Scorer {
     }
 
     fun getScore() : Int{
-        var nodePos = findStartNode()
-        var score = 0
+
+        var tracks = readSelection(GameConfig.game_genres[0])
+        var nodePos = tracks!!.mostPopularSongPos()
+
+        var score = tracks.tracks[nodePos].popularity
 
         for(column in 1 .. GameConfig.game_genres.size - 1){
             var tracks = readSelection(GameConfig.game_genres[column])
@@ -26,12 +29,6 @@ class Scorer {
 
         }
         return score
-    }
-
-    fun findStartNode() : Int{
-        var tracks = readSelection(GameConfig.game_genres[0])
-        var pos = tracks?.mostPopularSongPos() ?: 0
-        return pos
     }
 
     fun readSelection(genre : String) : Tracks? = selectionPref.getSelection(genre)
