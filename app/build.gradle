@@ -16,6 +16,10 @@ android {
         buildConfigField "String", "SPOTIFY_CLIENT_ID", "\"773880bd8ef44f53ac450c4c42ce082a\""
         buildConfigField "String", "SPOTIFY_ACCESS_TOKEN", "\"BQDKx59GkaOrLEOZMOHWHzEteivV4i2iyCq_gnBf1BbUHyHGaHudZ_9kHBx5n3YAFSI4rVVABPQzWQ_oAv50b7OkAm-FFAMwad_1D5GM2U_0ti-2W8bedJC14U-GkWJuDy8HO5Cy65O8RA\""
 
+        testHandleProfiling true
+        testFunctionalTest true
+        testApplicationId "com.shiva0705.sample.musicfy.tests"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -69,6 +73,20 @@ dependencies {
     kapt 'com.google.dagger:dagger-compiler:2.0.2'
 
     compile 'com.spotify.sdk:spotify-auth:1.0.0-beta12@aar'
+
+    /*Test libraries*/
+    androidTestCompile 'com.android.support.test:runner:0.3'
+    androidTestCompile 'com.android.support.test:rules:0.3'
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
+    androidTestCompile 'com.android.support:support-annotations:23.3.0'
+    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2'
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2') {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-annotations'
+    }
 }
 
 buildscript {

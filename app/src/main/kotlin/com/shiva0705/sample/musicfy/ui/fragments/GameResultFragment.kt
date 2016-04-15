@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import butterknife.bindView
 import com.shiva0705.sample.musicfy.R
+import com.shiva0705.sample.musicfy.core.app.MusicfyApp
 import com.shiva0705.sample.musicfy.domain.GameEngine
 import com.shiva0705.sample.musicfy.ui.fragments.core.BaseFragment
 import javax.inject.Inject
@@ -24,6 +25,8 @@ class GameResultFragment : BaseFragment(){
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity.application as MusicfyApp).appComponent.inject(this)
+
         tryAgain.setOnClickListener({tryAgain()})
     }
 

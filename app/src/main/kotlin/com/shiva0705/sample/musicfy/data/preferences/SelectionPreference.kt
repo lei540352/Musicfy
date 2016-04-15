@@ -8,7 +8,7 @@ import com.shiva0705.sample.musicfy.models.Tracks
 class SelectionPreference : BasePreference(){
 
     init{
-        MusicfyApp.instance.prefComponent.inject(this)
+        MusicfyApp.instance.appComponent.inject(this)
     }
 
     fun saveSelectionOrder(genre : String, tracks: Tracks) = commit(getGenrePrefName(genre), tracks)

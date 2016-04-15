@@ -5,7 +5,7 @@ import com.shiva0705.sample.musicfy.models.Tracks
 import com.shiva0705.sample.musicfy.models.core.SongComparator
 import java.util.*
 
-class ScoreGatherer{
+class ScoreCompiler {
 
 
     fun getNextNode(nodePos : Int, tracks : Tracks) : Int{

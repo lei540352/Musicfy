@@ -6,8 +6,9 @@ import java.util.*
 class Tracks(val tracks : List<Song>){
 
     fun mostPopularSongPos() : Int {
-        var newTracks = tracks
-         Collections.sort(newTracks, SongComparator())
+        var newTracks = arrayListOf<Song>()
+        newTracks.addAll(tracks)
+        Collections.sort(newTracks, SongComparator())
 
         return tracks.indexOf(newTracks[0])
     }

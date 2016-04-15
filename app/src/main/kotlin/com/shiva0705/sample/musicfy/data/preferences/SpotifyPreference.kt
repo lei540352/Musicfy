@@ -7,7 +7,7 @@ import com.shiva0705.sample.musicfy.data.preferences.core.Prefereneces
 class SpotifyPreference : BasePreference(){
 
     init{
-        MusicfyApp.instance.prefComponent.inject(this)
+        MusicfyApp.instance.appComponent.inject(this)
     }
 
     fun saveAuthTokeno(token : String) = commit(Prefereneces.spotify_auth_token, token)
